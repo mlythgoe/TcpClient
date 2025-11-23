@@ -1,0 +1,4 @@
+/Users/mikelythgoe/code/TcpClient/obj/Debug/net10.0/TcpClient.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mikelythgoe/code/TcpClient/obj/Debug/net10.0/TcpClient.AssemblyInfoInputs.cache
+/Users/mikelythgoe/code/TcpClient/obj/Debug/net10.0/TcpClient.AssemblyInfo.cs
+/Users/mikelythgoe/code/TcpClient/obj/Debug/net10.0/TcpClient.csproj.CoreCompileInputs.cache
