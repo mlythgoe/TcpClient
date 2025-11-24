@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mikelythgoe/code/TcpClient/TcpClient.csproj": {}
+    "/Users/mikelythgoe/code/vs-code-repos/TcpClient/TcpClient.csproj": {}
   },
   "projects": {
-    "/Users/mikelythgoe/code/TcpClient/TcpClient.csproj": {
+    "/Users/mikelythgoe/code/vs-code-repos/TcpClient/TcpClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mikelythgoe/code/TcpClient/TcpClient.csproj",
+        "projectUniqueName": "/Users/mikelythgoe/code/vs-code-repos/TcpClient/TcpClient.csproj",
         "projectName": "TcpClient",
-        "projectPath": "/Users/mikelythgoe/code/TcpClient/TcpClient.csproj",
+        "projectPath": "/Users/mikelythgoe/code/vs-code-repos/TcpClient/TcpClient.csproj",
         "packagesPath": "/Users/mikelythgoe/.nuget/packages/",
-        "outputPath": "/Users/mikelythgoe/code/TcpClient/obj/",
+        "outputPath": "/Users/mikelythgoe/code/vs-code-repos/TcpClient/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mikelythgoe/.nuget/NuGet/NuGet.Config"

@@ -24,7 +24,7 @@
                     networkStream = ourTcpClient.GetStream();
 
                     //use UTF-8 and either 8-bit encoding due to MLLP-related recommendations
-                    var messageToTransmit = "Hello from Client at " + DateTime.Now.ToString("o");
+                    var messageToTransmit = "This was sent from the client - Hello at " + DateTime.Now.ToString("o");
                     var byteBuffer = Encoding.UTF8.GetBytes(messageToTransmit);
 
                     //send a message through this connection using the IO stream
