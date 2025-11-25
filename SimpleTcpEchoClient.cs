@@ -30,7 +30,7 @@
                     //send a message through this connection using the IO stream
                     networkStream.Write(byteBuffer, 0, byteBuffer.Length);
 
-                    Console.WriteLine("Data was sent data to server successfully....");
+                    Console.WriteLine("Sent: '{0}' to the server", messageToTransmit);
 
                     var bytesReceivedFromServer = networkStream.Read(byteBuffer, 0, byteBuffer.Length);
 
@@ -47,7 +47,7 @@
                     }
                     var receivedMessage = Encoding.UTF8.GetString(byteBuffer);
 
-                    Console.WriteLine("Received message from server: {0}", receivedMessage);
+                    Console.WriteLine("Received: '{0}' from the server", receivedMessage);
 
                     Console.WriteLine("Press any key to exit program...");
                     Console.ReadLine();
