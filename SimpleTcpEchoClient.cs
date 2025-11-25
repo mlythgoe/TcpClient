@@ -1,20 +1,21 @@
-﻿    using System.Net;
-    using System.Net.Sockets;
-    using System.Text;
+﻿using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
 
-    namespace SimpleTcpEchoClient
+namespace TcpClient
     {
         public class SimpleTcpEchoClient
         {
-            static void Main(string[] args)
+            public static void Main(string[] args)
             {
-                TcpClient ourTcpClient = null;
+                System.Net.Sockets.TcpClient ourTcpClient = null;
                 NetworkStream networkStream = null;
 
                 try
                 {
                     //initiate a TCP client connection to local loopback address at port 1080
-                    ourTcpClient = new TcpClient();
+                    ourTcpClient = new System.Net.Sockets.TcpClient();
 
                     ourTcpClient.Connect(new IPEndPoint(IPAddress.Loopback, 1080));
 
