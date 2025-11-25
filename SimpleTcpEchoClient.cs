@@ -32,7 +32,7 @@ try
     //send a message through this connection using the IO stream
     networkStream.Write(byteBuffer, 0, byteBuffer.Length);
 
-    Console.WriteLine("Sent: '\n{0}' \nto the server", messageToTransmit);
+    Console.WriteLine("Sent: \n'{0}' \nto the server", messageToTransmit);
 
     var bytesReceivedFromServer = networkStream.Read(byteBuffer, 0, byteBuffer.Length);
 
