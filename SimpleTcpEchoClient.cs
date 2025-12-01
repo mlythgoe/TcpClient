@@ -34,8 +34,15 @@ try
     //send a message through this connection using the IO stream
     networkStream.Write(byteBuffer, 0, byteBuffer.Length);
 
-    Console.WriteLine("Sent: \n'{0}' \nto the server", messageToTransmit);
+    Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Sending to Server");
 
+    Console.WriteLine(messageToTransmit);
+    
+    Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Sent to Server");
+
+
+    Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Receiving from Server");
+    
     var bytesReceivedFromServer = networkStream.Read(byteBuffer, 0, byteBuffer.Length);
 
     // Our server for this example has been designed to echo back the message
@@ -52,8 +59,10 @@ try
 
     var receivedMessage = Encoding.UTF8.GetString(byteBuffer);
 
-    Console.WriteLine("");
-    Console.WriteLine("Received: \n'{0}' \nfrom the server", receivedMessage);
+    Console.WriteLine(receivedMessage);
+    
+    Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Received from Server");
+
 
     Console.WriteLine("Press any key to exit program...");
     Console.ReadLine();
