@@ -61,10 +61,7 @@ try
     Console.WriteLine(receivedMessage);
     
     Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Received from Server");
-
-
-    Console.WriteLine("Press any key to exit program...");
-    Console.ReadLine();
+    
 }
 catch (Exception ex)
 {
