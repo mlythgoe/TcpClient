@@ -36,12 +36,12 @@ try
     Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Sending to Server");
 
     Console.WriteLine(sentMessage);
-    
+
     Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Sent to Server");
 
 
     Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Receiving from Server");
-    
+
     var bytesReceivedFromServer = networkStream.Read(byteBuffer, 0, byteBuffer.Length);
 
     // Our server for this example has been designed to echo back the message
@@ -59,9 +59,8 @@ try
     var receivedMessage = Encoding.UTF8.GetString(byteBuffer);
 
     Console.WriteLine(receivedMessage);
-    
+
     Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Received from Server");
-    
 }
 catch (Exception ex)
 {
