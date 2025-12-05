@@ -7,9 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="HL7-dotnetcore" Version="2.39.1" />
-    <PackageReference Include="HL7-V2" Version="3.7.1" />
-  </ItemGroup>
-
 </Project>
