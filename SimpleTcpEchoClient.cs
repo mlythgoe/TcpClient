@@ -2,21 +2,21 @@
 using System.Net.Sockets;
 using System.Text;
 
-TcpClient? ourTcpClient = null;
+TcpClient? tcpClient = null;
 NetworkStream? networkStream = null;
 
 try
 
 {
     //initiate a TCP client connection to a local loopback address at port 1080
-    ourTcpClient = new TcpClient();
+    tcpClient = new TcpClient();
 
-    ourTcpClient.Connect(new IPEndPoint(IPAddress.Loopback, 1080));
+    tcpClient.Connect(new IPEndPoint(IPAddress.Loopback, 1080));
 
     Console.WriteLine("Connected to server....");
 
     //get the IO stream on this connection to write to
-    networkStream = ourTcpClient.GetStream();
+    networkStream = tcpClient.GetStream();
 
     //use UTF-8 and either 8-bit encoding due to MLLP-related recommendations
     var sentMessage =
@@ -28,10 +28,10 @@ try
         "OBX|2|CE|30956-7^VACCINE TYPE^LN|2|88^FLU^CVX||||||F|||20150202102525 OBX|3|TS|29768-9^Date vaccine information statement published^LN|2|20120702||||||F OBX|4|TS|29769-7^Date vaccine information statement presented^LN|2|20120202||||||F\n" +
         "RXA|0|1|20141215|20141115|141^influenza, SEASONAL 36^CVX^90658^Influenza Split^CPT|999|||01^HISTORICAL INFORMATION – SOURCE UNSPECIFIED^ NIP001||||||||||||A";
 
-    var byteBuffer = Encoding.UTF8.GetBytes(sentMessage);
+    var messageByteBuffer = Encoding.UTF8.GetBytes(sentMessage);
 
     //send a message through this connection using the IO stream
-    networkStream.Write(byteBuffer, 0, byteBuffer.Length);
+    networkStream.Write(messageByteBuffer, 0, messageByteBuffer.Length);
 
     Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Sending to Server");
 
@@ -42,13 +42,29 @@ try
 
     Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Receiving from Server");
 
-    var bytesReceivedFromServer = networkStream.Read(byteBuffer, 0, byteBuffer.Length);
+
+    // StringBuilder messageBuilder = new StringBuilder();
+    //
+    // var bytesRead = 0;
+    // var messageChunkSize = 10;
+    // do
+    // {
+    //     byte[] chunks = new byte[messageChunkSize];
+    //     bytesRead = networkStream.Read(chunks, 0, chunks.Length);
+    //     messageBuilder.Append(Encoding.UTF8.GetString(chunks));
+    // } while (bytesRead != 0);
+    //
+    //
+    // Console.WriteLine(messageBuilder.ToString());
+    //
+    //
+     var bytesReceivedFromServer = networkStream.Read(messageByteBuffer, 0, messageByteBuffer.Length);
 
     // Our server for this example has been designed to echo back the message
     // keep reading from this stream until the message is echoed back
-    while (bytesReceivedFromServer < byteBuffer.Length)
+    while (bytesReceivedFromServer < messageByteBuffer.Length)
     {
-        bytesReceivedFromServer = networkStream.Read(byteBuffer, 0, byteBuffer.Length);
+        bytesReceivedFromServer = networkStream.Read(messageByteBuffer, 0, messageByteBuffer.Length);
         if (bytesReceivedFromServer == 0)
         {
             //exit the reading loop since there is no more data
@@ -56,7 +72,7 @@ try
         }
     }
 
-    var receivedMessage = Encoding.UTF8.GetString(byteBuffer);
+    var receivedMessage = Encoding.UTF8.GetString(messageByteBuffer);
 
     Console.WriteLine(receivedMessage);
 
@@ -71,5 +87,5 @@ finally
 {
     //close the IO strem and the TCP connection
     networkStream?.Close();
-    ourTcpClient?.Close();
+    tcpClient?.Close();
 }
